@@ -44,9 +44,9 @@ app.use("/api/auth", authRoutes);
 app.use("/api/crypto", cryptoRoutes);
 app.use("/api/ai", aiRoutes);
 
-app.use(express.static(frontendPath));
-app.get("*", (_req, res) => {
-  res.sendFile(path.join(frontendPath, "index.html"));
+res.sendFile(path.join(frontendPath, "index.html"));
+app.get("/", (req, res) => {
+  res.send("CryptoGuardian API is running 🚀");
 });
 
 app.listen(PORT, () => {
